@@ -1,8 +1,72 @@
-1) Open a command prompt in the project's root directory (APM)
+# angularservices
 
-2) Type: `npm install`
-    This installs the dependencies as defined in the package.json file.
-    
-3) Type: `npm start`
-    This launches the TypeScript compiler (tsc) to compile the application and wait for changes. 
-    It also starts the lite-server and launches the browser to run the application.
+## Installation
+
+To install this library, run:
+
+```bash
+$ npm install angularservices --save
+```
+
+## Consuming your library
+
+Once you have published your library to npm, you can import your library in any Angular application by running:
+
+```bash
+$ npm install angularservices
+```
+
+and then from your Angular `AppModule`:
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+// Import your library
+import { SampleModule } from 'angularservices';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+
+    // Specify your library as an import
+    LibraryModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Once your library is imported, you can use its components, directives and pipes in your Angular application:
+
+```xml
+<!-- You can now use your library component in app.component.html -->
+<h1>
+  {{title}}
+</h1>
+<sampleComponent></sampleComponent>
+```
+
+## Development
+
+To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
+
+```bash
+$ npm run build
+```
+
+To lint all `*.ts` files:
+
+```bash
+$ npm run lint
+```
+
+## License
+
+MIT © [mohamed salah](mailto:msalah379@gmail.com)
